@@ -1,0 +1,66 @@
+<div class="jumbotron">
+  <h1>APLIKACIJA BIBLIOTEKA</h1>
+  <p>Dobrodosli na aplikaciju Biblioteka.</p>
+</div>
+
+<div ng-controller="bibliotekaCtrl">
+
+<div class="row"><!-- BEGIN ROW -->
+
+    <div class="col-sm-12"><!-- BEGIN COL -->
+
+    <form>
+        <div class="form-group">
+            <label for="search">Pretraga</label>
+            <div class="row">
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="search" ng-model="form.input" />
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control" ng-init="form.select='name'" ng-model="form.select">
+                        <option value="name">po nazivu</option>
+                        <option value="isbn">po isbn</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="button" ng-click="search()">Search</button>
+            </div>
+        </div>
+    </form>
+
+    </div><!-- END OF COL -->
+
+    <div class="col-sm-12"><!-- BEGIN COL -->
+
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" ng-disabled="brojacStranice == 0" ng-click="changePage(-1)">prev</button>
+            <button type="button" class="btn btn-primary" ng-disabled="brojacStranice == totalPages - 1" ng-click="changePage(1)">next</button>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ISBN</th>
+                    <th>Naslov</th>
+                    <th>Autor</th>
+                    <th>Opcije</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>{{book.bookID}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author.firstname}} {{book.author.lastname}}</td>
+                    <td class="td-width">
+                        <button class="btn btn-success btn-xs" type="button" ng-click="editBook(book)" >edit</button>
+                        <button class="btn btn-danger btn-xs" type="button" ng-click="deleteBook(book.bookID)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div><!-- END OF COL -->
+
+</div><!-- END OF ROW -->
+
+</div>

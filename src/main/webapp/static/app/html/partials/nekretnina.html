@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h1>APLIKACIJA NEKRENTINE</h1>
+  <p>Aplikacija sa zavrsnog testa koja prikazuje nekretnine i omogucuje rad sa istima.</p>
+</div>
+
+<div ng-controller="nekretninaCtrl">
+	<div class="row">
+		<div class="col-sm-12">
+			<form>
+				<div class="form-group">
+					<label for="adresa">Adresa</label>
+					<input type="text" class="form-control" id="adresa" ng-model="nekretnina.adresa">
+				</div>
+				<div class="form-group">
+					<label for="cena">Cena</label>
+					<input type="text" class="form-control" id="cena" ng-model="nekretnina.cena">
+				</div>
+				<div class="form-group">
+					<label for="cena">Tip Nekretnine</label>
+					<input type="text" class="form-control" id="cena" ng-model="nekretnina.tipNekretnine.naziv">
+				</div>
+				<button class="btn btn-primary" type="button" ng-click="sacuvaj(nekretnina)">Sacuvaj</button>
+			</form>
+		</div>
+	</div>
+</div>

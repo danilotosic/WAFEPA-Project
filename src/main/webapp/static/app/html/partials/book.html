@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1>APLIKACIJA BIBLIOTEKA</h1>
+  <p>RAD SA KNJIGAMA</p>
+</div>
+
+<div ng-controller="bookCtrl">
+
+    <div class="row"><!-- BEGIN OF ROW -->
+
+        <div class="col-sm-5"><!-- COL BEGIN -->
+            <form>
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" class="form-control" id="isbn" ng-model="book.isbn" />
+                </div>
+                <div class="form-group">
+                    <label for="name">NAME:</label>
+                    <input type="text" class="form-control" id="name" ng-model="book.name" />
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <select class="form-control" ng-init="form.select=book.author.authorID" ng-model="form.select">
+                        <option ng-repeat="author in iterAuthors" value="{{author.authorID}}">{{author.firstname}} {{author.lastname}} {{author.authorID}}</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default pull-right" ng-click="">Izmeni</button>
+                {{book.author.authorID}}
+                {{form.select}}
+            </form>
+        </div><!-- END OF COL -->
+
+    </div><!-- END OF ROW -->
+
+</div>
