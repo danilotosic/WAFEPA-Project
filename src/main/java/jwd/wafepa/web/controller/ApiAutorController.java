@@ -49,6 +49,8 @@ public class ApiAutorController {
 			Iterable<Author> iterableAuthors;
 			iterableAuthors = authorService.findAll();
 
+			// TODO DANILO
+
 			for (Author author : iterableAuthors) {
 				retVal.add(author);
 			}
